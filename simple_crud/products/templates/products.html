@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products</title>
+</head>
+
+<body>
+    <ul>
+        {% for product in products %}
+        <a href="{%  url 'update' product.id  %}">
+            <li>{{ product }}</li>
+        </a>
+        <ul style="list-style: none;">
+            <li>ID: {{product.id}}</li>
+            <li>Price: {{product.price}}</li>
+            <li>Quantity: {{product.quantity}}</li>
+        </ul>
+        {% endfor %}
+    </ul>
+    <a href="{%  url 'create'  %}">Add New</a>
+</body>
+
+</html>

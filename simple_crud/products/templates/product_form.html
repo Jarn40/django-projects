@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Products</title>
+</head>
+
+<body>
+    {% if product %}
+    <h1>Update Product</h1>
+    {% else %}
+    <h1>New Product</h1>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Save</button>
+    </form>
+    <br>
+    <a href="{% url 'list' %}">Cancel</a>
+
+    {% if product %}
+    <a href="{% url 'delete' product.id%}">Delete</a>
+    {%endif%}
+
+</body>
+
+</html>
